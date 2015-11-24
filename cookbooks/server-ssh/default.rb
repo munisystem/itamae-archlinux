@@ -5,6 +5,7 @@ service 'sshd' do
 end
 
 template '/etc/ssh/sshd_config' do
+  source './templates/sshd_config'
   notifies :restart, 'service[sshd]', :immediately
 end
 
