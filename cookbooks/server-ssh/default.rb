@@ -1,5 +1,7 @@
 include_recipe './attributes/default.rb'
 
+package 'openssh'
+
 service 'sshd' do
   action :nothing
 end
