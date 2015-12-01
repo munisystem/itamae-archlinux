@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker Redmine
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/docker start postgresql-redmine && /usr/bin/docker start redmine
+
+[Install]
+WantedBy=multi-user.target
