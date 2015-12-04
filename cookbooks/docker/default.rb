@@ -1,7 +1,7 @@
 package 'docker' do
-  notifies :enable, 'service[docker]', :immediately
+  notifies :start, 'service[docker]', :immediately
 end
 
 service 'docker' do
-  action :nothing
+  action :enable
 end
