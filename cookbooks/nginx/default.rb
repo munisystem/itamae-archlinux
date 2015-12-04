@@ -9,7 +9,7 @@ service 'nginx' do
   action :enable
 end
 
-directory '/etc/nginx/conf.d' do
+remote_directory '/etc/nginx/conf.d' do
   source './files/waterlily'
   notifies :restart, 'service[nginx]'
 end
