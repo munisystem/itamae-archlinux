@@ -1,7 +1,6 @@
 include_recipe './attributes/default.rb'
 
-# Generate user 'nginx'
-include_recipe '../user/default.rb'
+user 'www-data'
 
 package 'nginx'
 
@@ -11,10 +10,15 @@ end
 
 remote_directory '/etc/nginx/conf.d' do
   source './files/waterlily'
+  owner 'root'
+  group 'root'
   notifies :restart, 'service[nginx]'
 end
 
 template '/etc/nginx/nginx.conf' do
   source './templates/nginx.conf'
+  owner 'root'
+  group 'root'
+  mode '0600'
   notifies :restart, 'service[nginx]'
 end
