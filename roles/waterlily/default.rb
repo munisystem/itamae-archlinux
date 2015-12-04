@@ -1,0 +1,5 @@
+include_recipe "../../cookbooks/user/default.rb"
+include_recipe "../../cookbooks/server-ssh/default.rb"
+include_recipe "../../cookbooks/docker/default.rb"
+include_recipe "../../cookbooks/docker-redmine/default.rb"
+include_recipe "../../cookbooks/nginx/default.rb"
