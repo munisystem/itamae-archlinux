@@ -8,7 +8,7 @@ execute 'Install docker-redmine-postgresql' do
   sameersbn/postgresql:9.4-8
   EOL
   user 'root'
-  not_if 'test -e /srv/docker/redmine/postgresql'
+  not_if 'docker ps -a | grep postgresql-redmine'
 end
 
 execute 'Install docker-redmine' do
@@ -20,7 +20,7 @@ execute 'Install docker-redmine' do
   sameersbn/redmine:3.1.2-1
   EOL
   user 'root'
-  not_if 'test -e /srv/docker/redmine/redmine'
+  not_if 'docker ps -a | grep redmine:3.1.2'
 end
 
 template '/usr/lib/systemd/system/docker-redmine.service' do
