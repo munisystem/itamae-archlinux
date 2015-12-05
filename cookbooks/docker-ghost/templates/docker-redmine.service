@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker Ghost
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/docker start ghost
+
+[Install]
+WantedBy=multi-user.target
