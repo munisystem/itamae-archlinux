@@ -4,7 +4,7 @@ var path = require('path'),
 config = {
     // ### Production
     production: {
-        url: 'http://blog.munisystem.net',
+        url: '<%= node['ghost_url'] %>',
         mail: {},
         database: {
             client: 'sqlite3',

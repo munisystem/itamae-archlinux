@@ -1,3 +1,5 @@
+include_recipe './attributes/default.rb'
+
 execute 'Install docker-ghost' do
   command <<-EOL
   docker run --name=ghost -d \
