@@ -18,6 +18,14 @@ template '/usr/lib/systemd/system/docker-ghost.service' do
   notifies :restart, 'service[docker-ghost]', :immediately
 end
 
+template '/srv/docker/ghost/config.js' do
+  source './templates/config.js'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[docker-ghost]', :immediately
+end
+
 execute 'Reload_daemon' do
   command 'systemctl daemon-reload'
   user 'root'
