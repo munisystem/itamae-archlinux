@@ -6,6 +6,8 @@ After=docker.service
 [Service]
 Type=simple
 ExecStart=/usr/bin/docker start postgresql-redmine && /usr/bin/docker start redmine
+ExecReload=/usr/bin/docker restart redmine
+ExecStop=/usr/bin/docker stop postgresql-redmine && /usr/bin/docker stop redmine
 
 [Install]
 WantedBy=multi-user.target
