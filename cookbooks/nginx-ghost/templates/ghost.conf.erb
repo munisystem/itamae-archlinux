@@ -1,0 +1,19 @@
+server {
+  listen 80;
+  server_name <%= node['ghost_domain'] %>;
+
+  access_log /var/log/nginx/<%= node['ghost_domain'] %>.access.log combined;
+  error_log  /var/log/nginx/<%= node['ghost_domain'] %>.error.log;
+
+  location / {
+    proxy_pass http://localhost:2368;
+    proxy_redirect default;
+  }
+}
+
+server {
+  listen 443;
+  server_name <%= node['ghost_domain'] %>;
+
+  return 301 http://<%= node['ghost_domain'] %>;
+}
