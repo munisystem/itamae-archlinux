@@ -1,5 +1,3 @@
-include_recipe './attributes/default.rb'
-
 user 'www-data'
 
 package 'nginx'
