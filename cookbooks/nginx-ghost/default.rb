@@ -8,6 +8,12 @@ service 'nginx' do
   action :enable
 end
 
+directory '/etc/nginx/conf.d' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
 template '/etc/nginx/conf.d/ghost.conf' do
   source './templates/ghost.conf.erb'
   owner 'root'
