@@ -1,3 +1,3 @@
 node.reverse_merge!(
-  ghost_url: 'http://blog.munisystem.net'
+  ghost_domain: 'blog.munisystem.net'
 )

@@ -4,7 +4,7 @@ var path = require('path'),
 config = {
     // ### Production
     production: {
-        url: '<%= node['ghost_url'] %>',
+        url: 'http://<%= node['ghost_domain'] %>',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -22,7 +22,7 @@ config = {
 
     // ### Development **(default)**
     development: {
-        url: 'http://blog.munisystem.net',
+        url: 'http://<%= node['ghost_domain'] %>',
 
         // #### Database
         // Ghost supports sqlite3 (default), MySQL & PostgreSQL
