@@ -1,3 +1,5 @@
+include_recipe './attributes/default.rb'
+
 execute 'Install docker-ghost' do
   command <<-EOL
   docker run --name=ghost -d \
@@ -19,7 +21,7 @@ template '/usr/lib/systemd/system/docker-ghost.service' do
 end
 
 template '/srv/docker/ghost/config.js' do
-  source './templates/config.js'
+  source './templates/config.js.erb'
   owner 'root'
   group 'root'
   mode '0644'
